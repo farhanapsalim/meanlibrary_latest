@@ -5,6 +5,7 @@ const UserData=require('./src/model/Userdata')
 // const User = require('./src/model/user');
 const cors = require('cors');
 const path = require('path');
+const port = process.env.PORT || 3300;
 // const  bodyparser=require('body-parser');
 const jwt = require('jsonwebtoken')
 var app = new express();
@@ -181,6 +182,4 @@ app.delete('/api/removeauthor/:id',(req,res)=>{
     res.sendFile(path.join(__dirname + '/dist/products/index.html'));
   });
 
-app.listen(3000, function(){
-    console.log('listening to port 3000');
-});
+  app.listen(port,()=>{console.log("Server Ready at" +port)});
